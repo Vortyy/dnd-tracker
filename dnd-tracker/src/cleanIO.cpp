@@ -89,6 +89,7 @@ void askIntWithBounds(std::string message, int &intVar, int min, int max) {
 	std::cin >> intVar;
 	cinIntWithBoundsCheck(intVar, min, max);
 	cinClear();
+	std::cout << std::endl;
 }
 
 /*
@@ -175,4 +176,5 @@ void askDoubleWithBounds(std::string message, int &doubleVar, int min, int max) 
 void askString(std::string message, std::string &stringVar) {
 	std::cout << message;
 	std::cin >> stringVar;
+	std::cout << std::endl;
 }
