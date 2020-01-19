@@ -5,6 +5,7 @@
  */
 
 #include "menu.h"
+#include "characterCreation.h"
 
  /*
   * Displays the main menu.
@@ -19,67 +20,74 @@ void mainMenu() {
 /*
  * Displays the character creation menu.
  */
-void creationMenu(std::string name, int level, std::string race, std::string classe) {
+void creationMenu(std::string name, int level, std::string race, std::string classe, int statsTable[6], std::string statsName[6], std::string modifiersTable[6], int raceBonus[6]) {
 	std::cout << "Your character:" << std::endl;
-	if (name == "") {
-		std::cout << "\t1. Enter your character's name" << std::endl;
-	}
+
+	if (name == "") std::cout << "\t1. Enter your character's name" << std::endl;
 	else std::cout << "\tName: " << name << std::endl;
 
-	if (level == -1) {
-		std::cout << "\t2. Set your level" << std::endl;
-	}
+	if (level == -1) std::cout << "\t2. Set your level" << std::endl;
 	else std::cout << "\tLevel: " << level << std::endl;
 
-	if (race == "") {
-		std::cout << "\t3. Select a race" << std::endl;
-	}
+	if (race == "") std::cout << "\t3. Select a race" << std::endl;
 	else std::cout << "\tRace: " << race << std::endl;
 
-	if (classe == "") {
-		std::cout << "\t4. Select a class" << std::endl;
-	}
+	if (classe == "") std::cout << "\t4. Select a class" << std::endl;
 	else std::cout << "\tClass: " << classe << std::endl;
 
+	if (statsTable[0] == 0) std::cout << "\t5. Set your ability scores" << std::endl;
+	else {
+		for (int i = 0; i < 6; i++) {
+			if (race != "") {
+				int temp = statsTable[i] + raceBonus[i];
+				modifiersTable[i] = setModifiers(temp);
+				std::cout << "\t" << statsName[i] << ": " << temp << " (" << modifiersTable[i] << ")" << std::endl;
+			}
+			else {
+				int temp = statsTable[i];
+				modifiersTable[i] = setModifiers(temp);
+				std::cout << "\t" << statsName[i] << ": " << statsTable[i] << " (" << modifiersTable[i] << ")" << std::endl;
+			}
+			
+		}
+	}
 
-	std::cout << "\t6. \"Save\"" << std::endl;
+	std::cout << "\t8. View your character's sheet." << std::endl
+		<< "\t9. \"Save\"" << std::endl;
 }
 
 /*
  * Displays the race menu
+ * param: string racesTable[16] ~ array with all the available classes.
  */
-void raceMenu() {
-	std::cout << "Race list:" << std::endl
-		<< "\t1. Aasimar" << std::endl
-		<< "\t2. Dragonborn" << std::endl
-		<< "\t3. Dwarf" << std::endl
-		<< "\t4. Elf" << std::endl
-		<< "\t5. Firbolg" << std::endl
-		<< "\t6. Gnome" << std::endl
-		<< "\t7. Goliath" << std::endl
-		<< "\t8. Half-Elf" << std::endl
-		<< "\t9. Half-Orc" << std::endl
-		<< "\t10. Halfling" << std::endl
-		<< "\t11. Human" << std::endl
-		<< "\t12. Kenku" << std::endl
-		<< "\t13. Lizardfolk" << std::endl
-		<< "\t14. Tabaxi" << std::endl
-		<< "\t15. Tiefling" << std::endl
-		<< "\t16. Triton" << std::endl;
+void raceMenu(std::string racesTable[16]) {
+	std::cout << "Race list:" << std::endl;
+	for (int i = 1; i < 17; i++) {
+		std::cout << "\t" << i << ". " << racesTable[i - 1] << std::endl;
+	}
 }
 
-void classMenu() {
-	std::cout << "Class list:" << std::endl
-		<< "\t1. Barbarian" << std::endl
-		<< "\t2. Bard" << std::endl
-		<< "\t3. Cleric" << std::endl
-		<< "\t4. Druid" << std::endl
-		<< "\t5. Fighter" << std::endl
-		<< "\t6. Monk" << std::endl
-		<< "\t7. Paladin" << std::endl
-		<< "\t8. Ranger" << std::endl
-		<< "\t9. Rogue" << std::endl
-		<< "\t10. Sorcerer" << std::endl
-		<< "\t11. Warlock" << std::endl
-		<< "\t12. Wizard" << std::endl;
+/*
+ * Displays the class menu
+ * param: string classesTable[12] ~ array with all the availables classes.
+ */
+void classMenu(std::string classesTable[12]) {
+	std::cout << "Class list:" << std::endl;
+	for (int i = 1; i < 13; i++) {
+		std::cout << "\t" << i << ". " << classesTable[i - 1] << std::endl;
+	}
+}
+
+/*
+ * Displays the stats' menu.
+ */
+void statsMenu(int statsTable[6], std::string statsName[6], std::string modifiersTable[6]) {
+	std::cout << "Your character's ability scores:" << std::endl;
+
+	for (int i = 1; i < 7; i++) {
+		if (statsTable[i - 1] == 0) std::cout << "\t" << i << ". Set your " << statsName[i - 1] << " score" << std::endl;
+		else std::cout << "\t" << statsName[i - 1] << ": " << statsTable[i - 1] << std::endl;
+	}
+
+	std::cout << "\t7. Back" << std::endl;
 }
