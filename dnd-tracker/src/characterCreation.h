@@ -29,5 +29,6 @@ struct Character {
 };
 
 Character characterCreation();
+void readRaces();
 
 #endif // !CHARACTERCREATION_H_

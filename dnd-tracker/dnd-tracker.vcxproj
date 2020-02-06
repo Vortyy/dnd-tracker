@@ -124,6 +124,9 @@
     <ClInclude Include="src\characterCreation.h" />
     <ClInclude Include="src\menu.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="races.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

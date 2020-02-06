@@ -1,0 +1,10 @@
+RACE		AVAILABLE
+Dwarf 		true
+Elf 		true
+Halfling 	true
+Human 		true
+Dragonborn 	true
+Gnome 		true
+Half-Elf 	true
+Half-Orc 	true
+Tiefling 	true
