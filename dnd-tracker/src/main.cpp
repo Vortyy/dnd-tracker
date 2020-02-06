@@ -4,32 +4,30 @@
  * Author:	Étienne Ménard
  */
 
-#include <iostream>
-#include <string>
 #include "cleanIO.h"
-#include "menu.h"
 #include "characterCreation.h"
+#include "menu.h"
 
 int main() {
-	int menuChoice;
+	Character characters[3];
 	
+	int saveSlot;
 	do {
-		system("CLS");
-		mainMenu();
-		askIntWithBounds("Choose an option: ", menuChoice, 1, 3);
-		switch (menuChoice) {
-		case 1:
-			createCharacter();
-			break;
-
-		case 2:
-			std::cout << "Loading a character is not yet available." << std::endl;
-			break;
-
-		default:
-			break;
-		}
-	} while (menuChoice != 3);
+		mainMenu(characters);
+		std::cout << std::endl;
+		askIntWithBounds("Select a option: ", saveSlot, 1, 4);
+		if (saveSlot != 4) characters[saveSlot - 1] = characterCreation();
+		system("cls");
+	} while (saveSlot != 4);
 
 	return 0;
+}
+
+Character characterCreation() {
+	system("cls");
+	Character character;
+	askString("Enter your character's name: ", character.name);
+	askIntWithBounds("Enter your character's level: ", character.level, 1, 20);
+
+	return character;
 }
