@@ -81,3 +81,31 @@ void askString(std::string message, std::string &input) {
     cinClear();
 	std::cout << std::endl;
 }
+
+/*
+ *  Tests if the file is opened.
+ *  param: ifstream& file : Input file
+ *  param: string fileName : File's path
+ */
+void openFile(std::ifstream& file, std::string fileName) {
+	file.open(fileName);
+
+	if (!file.is_open()) {
+		std::cout << "File is missing" << std::endl;
+		system("pause");
+		exit(0);
+	}
+}
+
+/*
+ *  Tests if the file is empty, closes if true.
+ *  param: ifstream& file : Input file
+ */
+void ifEmpty(std::ifstream& file) {
+	if (file.fail()) {
+		std::cout << "File is empty" << std::endl;
+		file.close();
+		system("pause");
+		exit(0);
+	}
+}

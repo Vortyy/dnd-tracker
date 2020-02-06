@@ -13,5 +13,6 @@
 #define MENU_H_
 
 void mainMenu(Character characters[]);
+void raceMenu(std::string races[], int nbRaces);
 
 #endif // MENU_H_

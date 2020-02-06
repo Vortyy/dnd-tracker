@@ -6,7 +6,9 @@
  */
 
 #include <iostream>
+#include <fstream>
 #include <string>
+#include "cleanIO.h"
 
 #ifndef CHARACTERCREATION_H_
 #define CHARACTERCREATION_H_
@@ -29,6 +31,7 @@ struct Character {
 };
 
 Character characterCreation();
-void readRaces();
+void readRaces(std::string races[], int& nbRaces);
+int pickRace(std::string races[], int nbRaces);
 
 #endif // !CHARACTERCREATION_H_
