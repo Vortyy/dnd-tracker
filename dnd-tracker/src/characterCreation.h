@@ -26,12 +26,12 @@ struct Character {
 	std::string name = "";
 	std::string race = "";
 	std::string classe = "";
-	int level = -1;
+	int level = 0;
 	Ability ability;
 };
 
 Character characterCreation();
-void readRaces(std::string races[], int& nbRaces);
-int pickRace(std::string races[], int nbRaces);
+void readFile(std::string filePath, std::string arr[], int& nb);
+int pickFromArray(std::string arr[], int nb);
 
 #endif // !CHARACTERCREATION_H_

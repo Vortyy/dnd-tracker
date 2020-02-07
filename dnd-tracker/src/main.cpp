@@ -6,7 +6,6 @@
 
 #include <fstream>
 #include "cleanIO.h"
-//#include "characterCreation.h"
 #include "menu.h"
 
 int main() {
@@ -27,14 +26,19 @@ int main() {
 Character characterCreation() {
 	system("cls");
 	Character character;
-	std::string races[37];
-	int nbRaces = 0;
+	std::string races[40];
+	std::string classes[20];
+	int nbRaces = 0, nbClasses = 0;
 
-	askString("Enter your character's name: ", character.name);
-	askIntWithBounds("Enter your character's level (1 - 20): ", character.level, 1, 20);
+	askString("Enter your character's name: ", character.name); // Name
 
-	readRaces(races, nbRaces);
-	character.race = races[pickRace(races, nbRaces) - 1];
+	askIntWithBounds("Enter your character's level (1 - 20): ", character.level, 1, 20); // Level
+
+	readFile("races.txt", races, nbRaces); // Race
+	character.race = races[pickFromArray(races, nbRaces) - 1];
+
+	readFile("classes.txt", classes, nbClasses); // Class
+	character.classe = classes[pickFromArray(classes, nbClasses) - 1];
 
 	return character;
 }

@@ -1,0 +1,14 @@
+CLASSES		AVAILABLE
+Artificier	false
+Barbarian	true
+Bard		true
+Cleric		true
+Druid		true
+Fighter		true
+Monk		true
+Paladin		true
+Ranger		true
+Rogue		true
+Sorcerer	true
+Warlock		true
+Wizard		true

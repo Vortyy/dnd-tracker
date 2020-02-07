@@ -126,6 +126,7 @@
     <ClInclude Include="src\menu.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="classes.txt" />
     <Text Include="races.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

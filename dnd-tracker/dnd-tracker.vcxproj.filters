@@ -43,5 +43,8 @@
     <Text Include="races.txt">
       <Filter>Fichiers de ressources</Filter>
     </Text>
+    <Text Include="classes.txt">
+      <Filter>Fichiers de ressources</Filter>
+    </Text>
   </ItemGroup>
 </Project>

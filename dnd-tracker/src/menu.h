@@ -13,6 +13,6 @@
 #define MENU_H_
 
 void mainMenu(Character characters[]);
-void raceMenu(std::string races[], int nbRaces);
+void arrayMenu(std::string arr[], int nb);
 
 #endif // MENU_H_
