@@ -39,11 +39,18 @@ struct Character {
 	int level = 0;
 	Ability ability;
 	Modifier modifier;
+	int ac = 0;
+	int initiative = 0;
 };
 
 Character characterCreation();
 void enterLevel(int& level, int& proficiency);
 void editAbilityScores(Ability &ability);
+void updateAbilityModifiers(Ability ability, Modifier& modifier);
+void scoreToModifier(int score, int& modifier);
+void updateAC(int& ac, Character character);
+void updateInitiative(int& initiative, int dex);
+
 void readFileToArray(std::string filePath, std::string arr[], int& nb);
 int pickFromArray(std::string arr[], int nb);
 

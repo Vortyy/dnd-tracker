@@ -4,9 +4,7 @@
  * Author:	Étienne Ménard
  */
 
-#include <fstream>
-#include "cleanIO.h"
-#include "menu.h"
+#include "header.h"
 
 int main() {
 	Character characterTable[3];
@@ -21,26 +19,4 @@ int main() {
 	} while (saveSlot != 4);
 
 	return 0;
-}
-
-Character characterCreation() {
-	system("cls");
-	Character character;
-	std::string races[40];
-	std::string classes[20];
-	int nbRaces = 0, nbClasses = 0;
-
-	askString("Enter your character's name: ", character.name); // Name
-
-	enterLevel(character.level, character.modifier.proficiency); // Level 
-
-	readFileToArray("races.txt", races, nbRaces); // Race
-	character.race = races[pickFromArray(races, nbRaces) - 1];
-
-	readFileToArray("classes.txt", classes, nbClasses); // Class
-	character.classe = classes[pickFromArray(classes, nbClasses) - 1];
-
-	editAbilityScores(character.ability);
-
-	return character;
 }

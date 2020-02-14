@@ -17,8 +17,7 @@ void mainMenu(Character characters[]) {
 			std::cout << "EMPTY";
 		}
 		else {
-			std::cout << characters[i].name << ", Level " << characters[i].level << " " << characters[i].race << " " << characters[i].classe << std::endl
-				<< "STR: " << characters[i].ability.str;
+			std::cout << characters[i].name << ", Level " << characters[i].level << " " << characters[i].race << " " << characters[i].classe;
 		}
 		std::cout << std::endl;
 	}

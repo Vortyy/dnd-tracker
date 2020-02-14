@@ -123,6 +123,7 @@
   <ItemGroup>
     <ClInclude Include="src\cleanIO.h" />
     <ClInclude Include="src\characterCreation.h" />
+    <ClInclude Include="src\header.h" />
     <ClInclude Include="src\menu.h" />
   </ItemGroup>
   <ItemGroup>
