@@ -12,16 +12,17 @@
 void mainMenu(Character characters[]) {
     std::cout << "DnD Character Tracker, by Etienne \"Vorty\" Menard" << std::endl << std::endl;
 	for (int i = 0; i < 3; i++) {
-		std::cout << i + 1 << ". Slot : ";
+		std::cout << "\tSlot " << i + 1 << " : ";
 		if (characters[i].name == "") {
 			std::cout << "EMPTY";
 		}
 		else {
-			std::cout << characters[i].name << ", Level " << characters[i].level << " " << characters[i].race << " " << characters[i].classe;
+			std::cout << characters[i].name << ", Level " << characters[i].level << " " << characters[i].race << " " << characters[i].classe << std::endl
+				<< "STR: " << characters[i].ability.str;
 		}
 		std::cout << std::endl;
 	}
-	std::cout << "4. Exit program" << std::endl;
+	std::cout << std::endl << "4. Exit program" << std::endl;
 }
 
 /*

@@ -10,8 +10,12 @@
   *  Empties the buffer
   */
 void cinClear() {
-	std::cin.clear();
-	std::cin.ignore();
+    std::cin.clear();
+    std::cin.seekg(0, std::ios::end);
+    if (!std::cin.fail())
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max());
+    else
+        std::cin.clear();
 }
 
 /*
@@ -77,7 +81,7 @@ void askIntWithBounds(std::string message, int &input, int min, int max) {
  */
 void askString(std::string message, std::string &input) {
 	std::cout << message;
-	std::cin >> input;
+    getline(std::cin, input);
     cinClear();
 	std::cout << std::endl;
 }

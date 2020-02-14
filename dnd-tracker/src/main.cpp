@@ -32,13 +32,15 @@ Character characterCreation() {
 
 	askString("Enter your character's name: ", character.name); // Name
 
-	askIntWithBounds("Enter your character's level (1 - 20): ", character.level, 1, 20); // Level
+	enterLevel(character.level, character.modifier.proficiency); // Level 
 
-	readFile("races.txt", races, nbRaces); // Race
+	readFileToArray("races.txt", races, nbRaces); // Race
 	character.race = races[pickFromArray(races, nbRaces) - 1];
 
-	readFile("classes.txt", classes, nbClasses); // Class
+	readFileToArray("classes.txt", classes, nbClasses); // Class
 	character.classe = classes[pickFromArray(classes, nbClasses) - 1];
+
+	editAbilityScores(character.ability);
 
 	return character;
 }

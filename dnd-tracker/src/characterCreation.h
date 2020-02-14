@@ -14,12 +14,22 @@
 #define CHARACTERCREATION_H_
 
 struct Ability {
-	int str;
-	int dex;
-	int con;
-	int intel;
-	int wis;
-	int cha;
+	int str = 0;
+	int dex = 0;
+	int con = 0;
+	int intel = 0;
+	int wis = 0;
+	int cha = 0;
+};
+
+struct Modifier {
+	int proficiency = 0;
+	int str = 0;
+	int dex = 0;
+	int con = 0;
+	int intel = 0;
+	int wis = 0;
+	int cha = 0;
 };
 
 struct Character {
@@ -28,10 +38,13 @@ struct Character {
 	std::string classe = "";
 	int level = 0;
 	Ability ability;
+	Modifier modifier;
 };
 
 Character characterCreation();
-void readFile(std::string filePath, std::string arr[], int& nb);
+void enterLevel(int& level, int& proficiency);
+void editAbilityScores(Ability &ability);
+void readFileToArray(std::string filePath, std::string arr[], int& nb);
 int pickFromArray(std::string arr[], int nb);
 
 #endif // !CHARACTERCREATION_H_
